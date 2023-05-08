@@ -1,0 +1,43 @@
+{
+  "name": "Overlord",
+  "description": "Monitor you activity and stay on task.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "webRequest",
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scripts/content.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/16.png",
+      "48": "assets/48.png",
+      "144": "assets/144.png"
+    },
+    "default_title": "Overlord is watching",
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "16": "assets/16.png",
+    "32": "assets/32.png",
+    "48": "assets/48.png",
+    "144": "assets/144.png",
+    "180": "assets/180.png",
+    "192": "assets/192.png",
+    "512": "assets/512.png"
+  }
+}
