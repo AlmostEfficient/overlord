@@ -1,19 +1,22 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div id="key_needed">
-            <p>To get started, add your OpenAI API Key!</p>
-            <input id="key_input" />
-            <button id="save_key_button">Add key</button>
-            <p id="error_message" class="error_message"></p>
-          </div>
-          
-        <div id="key_entered">
-           <p>You entered your OpenAI API Key.</p>
-           <button id="change_key_button">Change key</button>
-        </div>
-    </body>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="key_needed">
+      <p>To get started, add your OpenAI API Key!</p>
+      <input id="key_input" />
+      <button id="save_key_button">Add key</button>
+      <p id="error_message" class="error_message"></p>
+    </div>
+
+    <div id="key_entered">
+      <p>You entered your OpenAI API Key.</p>
+      <button id="change_key_button">Change key</button>
+      <!-- Button to request time data -->
+      <button id="request_data_button">Request time data</button>
+    </div>
+
     <script src="index.js"></script>
+  </body>
 </html>

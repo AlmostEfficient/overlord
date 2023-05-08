@@ -56,3 +56,17 @@ checkForKey().then((response) => {
     document.getElementById('key_entered').style.display = 'block';
   }
 });
+
+// Function to send a message to the background script and request tab time data
+function requestTabTimeData() {
+  chrome.runtime.sendMessage({ action: "getTabTimeData" }, (response) => {
+    // Handle the received tab time data
+    console.log("Received tab time data:", response);
+    // Perform any further actions with the tab time data
+  });
+}
+
+document.getElementById("request_data_button").onclick = () => {
+  // Call the function to request tab time data
+  requestTabTimeData();
+};
