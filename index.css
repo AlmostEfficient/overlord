@@ -5,3 +5,8 @@ body {
 #key_entered {
   display: none;
 }
+
+.error_message {
+  color: red;
+  display: none;
+}

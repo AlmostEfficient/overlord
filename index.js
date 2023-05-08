@@ -1,19 +1,32 @@
 const saveKey = async () => {
-  const input = document.getElementById('key_input');
-  
-  if (input) {
-    const { value } = input;
-  
-    // Encode String
-    const encodedValue = encode(value);
-  
-    // Save to google storage
-    chrome.storage.local.set({ 'openai-key': encodedValue }, () => {
-      document.getElementById('key_needed').style.display = 'none';
-      document.getElementById('key_entered').style.display = 'block';
+  let inputElement = document.getElementById("key_input");
+  if (inputElement) {
+    let value = inputElement.value.trim();
+    if (value.length === 0) {
+      // Display an error message when the key is empty
+      showError("Please enter a valid OpenAI API Key.");
+      return;
+    }
+
+    let encodedKey = encode(value);
+    chrome.storage.local.set({ "openai-key": encodedKey }, () => {
+      // Hide the key_input field and display the key_entered div
+      document.getElementById("key_needed").style.display = "none";
+      document.getElementById("key_entered").style.display = "block";
     });
   }
-}
+};
+
+const showError = (message) => {
+  let errorElement = document.getElementById("error_message");
+  if (errorElement) {
+    errorElement.textContent = message;
+    errorElement.style.display = "block";
+  }
+};
+
+// Rest of the code...
+
 
 const encode = (input) => {
   return btoa(input);
